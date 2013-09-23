@@ -221,7 +221,7 @@ type Pinch struct {
 // sum of the squares of the difference of each x, y and z coordinate.
 func DistanceBetween(x, y, z, x2, y2, z2 float64) float64 {
 	xSqDiff := math.Pow(x - x2, 2)
-	ySqDiff := math.Abs(math.Pow(y - y2, 2))
+	ySqDiff := math.Pow(y - y2, 2)
 	zSqDiff := math.Pow(z - z2, 2)
 	return xSqDiff + ySqDiff + zSqDiff
 }
