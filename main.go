@@ -48,11 +48,14 @@ type HandPinchCheck struct {
 
 	FingerDisappeared chan bool // listen if a finger disappeared
 
-	Pointables map[int]PointAble
+	Pointables map[int]*[]PointAble
 }
 
 func (hPinchCheck *HandPinchCheck) ListenForPointables() {
 	var now time.Time
+	pair := map[int]*[]circ_buf.Buffer{
+		PointAble{}
+	}
 
 	for  {
 		select {
@@ -67,7 +70,7 @@ func (hPinchCheck *HandPinchCheck) ListenForPointables() {
 			// check the number of pointables that are less than 5ms old
 			// if only 2, and distance between is less than X, send event
 
-			pair := map[int]*PointAble{}
+
 
 			for hid, pntbl := range hPinchCheck.Pointables {
 				isNew := bool(time.Since(pntbl.lastUpdate) < time.Duration(100 * time.Millisecond))
