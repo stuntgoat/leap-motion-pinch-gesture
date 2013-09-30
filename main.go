@@ -14,18 +14,15 @@ import (
 
 
 const (
-	// number of consecutive values before timeout
-	PINCH_DETECT_THRESHOLD = 40
-
 	// threshold between 2 pointables to register a pinch
 	PINCH_DISTANCE_THRESHOLD = 1900
 
-	// number of pointables to store in a circular buffer
-	// for each finger per hand id.
+	// number of previous pointable objects to store in a circular buffer
+	// for each finger per hand.
 	MAX_POINTABLES_PER_HISTORY = 15
 
 	// number of times that the last distance between 2 points
-	// can be greater that the current point when checking convergence
+	// can be greater than the current distance, when checking convergence.
 	CONVERGENCE_THRESHOLD = 6
 
 	DEBUG = true
