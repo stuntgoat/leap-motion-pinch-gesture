@@ -215,9 +215,10 @@ func (hPinchCheck *HandPinchCheck) ListenForPointables() {
 						logger.Printf("PINCH_DISTANCE_THRESHOLD: %d\tdistance: %f\n", PINCH_DISTANCE_THRESHOLD, dist)
 					}
 				}
-			}
-			if DEBUG_COLLECT {
-				logger.Printf("could not find 2 pointables. Found %d", len(pair))
+			} else  {
+				if DEBUG_COLLECT {
+					logger.Printf("could not find 2 pointables. Found %d", len(pair))
+				}
 			}
 			goto REMOVE_OLD
 		}
